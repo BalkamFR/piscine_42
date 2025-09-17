@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:20:29 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:30:03 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 13:45:27 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 13:51:22 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-void	ft_putchar(char c)
+void ft_swap(int *a, int *b)
 {
-	write(1, &c, 1);
+	int	temps;
+
+	temps = *b;
+	*b = *a;
+	*a = temps;	
 }
 
-void ft_putnbr(int nb)
-{
-	if (nb == 2147483647)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb<0)
-	{
-		write(1, "-",1);
-		nb = 0 - nb;
-	}
-	if (nb > 10)
-	{
-		ft_putnbr(nb/10);
-	}
-	ft_putchar((nb%10) + '0');
-}
-
+#include <stdio.h>
 int	main(void)
 {
-	ft_putnbr(2147483647);
-	return(0);
+	int	a;
+	int	b;
+
+	a = 42;
+	b = 69;
+
+	printf("avant a : %d\navant b : %d\n\n", a, b);
+	ft_swap(&a, &b);
+	printf("apres a : %d\napres b : %d\n", a, b);
 }

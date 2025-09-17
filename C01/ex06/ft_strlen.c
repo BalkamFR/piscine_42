@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:20:29 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:30:03 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 14:09:28 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 14:14:11 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-void	ft_putchar(char c)
+int ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+	
+	i = 0;
+	while (*str)
+	{
+		str++;
+		i++;
+	}
+	return(i);
 }
 
-void ft_putnbr(int nb)
-{
-	if (nb == 2147483647)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb<0)
-	{
-		write(1, "-",1);
-		nb = 0 - nb;
-	}
-	if (nb > 10)
-	{
-		ft_putnbr(nb/10);
-	}
-	ft_putchar((nb%10) + '0');
-}
+#include<stdio.h>
 
 int	main(void)
 {
-	ft_putnbr(2147483647);
-	return(0);
+	int	a;
+
+	a = ft_strlen("123456789 ");
+	printf("%d", a);
 }

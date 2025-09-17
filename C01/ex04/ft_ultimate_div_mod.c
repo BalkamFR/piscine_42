@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:20:29 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:30:03 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 14:00:33 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 14:07:23 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-void	ft_putchar(char c)
+void ft_ultimate_div_mod(int *a, int *b)
 {
-	write(1, &c, 1);
+	int	res;
+	int	rest;
+	
+	res = (*a / *b);
+	rest = (*a % *b);
+	
+	*a = res;
+	*b = rest;
 }
 
-void ft_putnbr(int nb)
-{
-	if (nb == 2147483647)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb<0)
-	{
-		write(1, "-",1);
-		nb = 0 - nb;
-	}
-	if (nb > 10)
-	{
-		ft_putnbr(nb/10);
-	}
-	ft_putchar((nb%10) + '0');
-}
-
+#include <stdio.h>
 int	main(void)
 {
-	ft_putnbr(2147483647);
-	return(0);
+	int	a;
+	int	b;
+	
+	a = 11;
+	b = 2;
+
+
+	ft_ultimate_div_mod(&a, &b);
+	printf("resultat : %d\nrest : %d \n", a, b);
 }

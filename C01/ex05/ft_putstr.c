@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:20:29 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:30:03 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 14:07:38 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 14:09:14 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-void	ft_putchar(char c)
+void ft_putstr(char *str)
 {
-	write(1, &c, 1);
-}
-
-void ft_putnbr(int nb)
-{
-	if (nb == 2147483647)
+	while (*str)
 	{
-		write(1, "-2147483648", 11);
-		return;
+		write(1, str, 1);
+		str++;
 	}
-	if (nb<0)
-	{
-		write(1, "-",1);
-		nb = 0 - nb;
-	}
-	if (nb > 10)
-	{
-		ft_putnbr(nb/10);
-	}
-	ft_putchar((nb%10) + '0');
 }
 
 int	main(void)
 {
-	ft_putnbr(2147483647);
-	return(0);
+	ft_putstr("hello world !");
 }

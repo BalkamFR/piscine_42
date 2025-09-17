@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:20:29 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:30:03 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 13:35:13 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 13:44:39 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include<stdio.h>
 
-void	ft_putchar(char c)
+void ft_ultimate_ft(int *********nbr)
 {
-	write(1, &c, 1);
-}
-
-void ft_putnbr(int nb)
-{
-	if (nb == 2147483647)
-	{
-		write(1, "-2147483648", 11);
-		return;
-	}
-	if (nb<0)
-	{
-		write(1, "-",1);
-		nb = 0 - nb;
-	}
-	if (nb > 10)
-	{
-		ft_putnbr(nb/10);
-	}
-	ft_putchar((nb%10) + '0');
+	*********nbr = 42;
 }
 
 int	main(void)
 {
-	ft_putnbr(2147483647);
-	return(0);
+	int base;
+	int *a;
+	int **b;
+	int ***c;
+	int ****d;
+	int *****e;
+	int ******f;
+	int *******g;
+	int ********h;
+	int *********i;
+	
+	base = 0;
+	
+	a = &base;
+	b = &a;
+	c = &b;
+	d = &c;
+	e = &d;
+	f = &e;
+	g = &f;
+	h = &g;
+	i = &h;
+
+	printf("avant : %d\n", base);
+	ft_ultimate_ft(i);
+	printf("avant : %d", base);
+
+
 }
