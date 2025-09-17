@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: papilaz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 10:44:11 by papilaz            #+#    #+#             */
-/*   Updated: 2025/09/17 10:44:12 by papilaz           ###   ########.fr       */
+/*   Created: 2025/09/17 16:25:52 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 16:31:30 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-int main(void)
-{
-	ft_putchar('c');
-	return (0);
-}
+// int	main(void)
+// {
+// 	ft_putchar('c');
+// 	return (0);
+// }

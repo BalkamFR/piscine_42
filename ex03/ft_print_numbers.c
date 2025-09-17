@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 10:57:33 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 10:59:42 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 16:28:10 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 16:31:55 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-void ft_print_numbers(void)
+void	ft_print_numbers(void)
 {
 	int	i;
 
@@ -24,8 +24,8 @@ void ft_print_numbers(void)
 	}
 }
 
-int main(void)
-{
-	ft_print_numbers();
-	return(0);
-}
+// int	main(void)
+// {
+// 	ft_print_numbers();
+// 	return (0);
+// }

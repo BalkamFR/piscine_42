@@ -5,33 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:03:15 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 11:14:38 by papilaz          ###   ########.fr       */
+/*   Created: 2025/09/17 16:29:41 by papilaz           #+#    #+#             */
+/*   Updated: 2025/09/17 16:32:13 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-void ft_print_comb(void)
+void	ft_print_comb(void)
 {
 	char	a;
 	char	b;
 	char	c;
-	
+
 	a = '0';
-	while (a<='7')
+	while (a <= '7')
 	{
 		b = a + 1;
-		while (b<='8')
+		while (b <= '8')
 		{
 			c = b + 1;
-			while (c<='9')
+			while (c <= '9')
 			{
 				write(1, &a, 1);
 				write(1, &b, 1);
 				write(1, &c, 1);
 				if (a != '7')
-					write(1, ", ",2);
+					write(1, ", ", 2);
 				c++;
 			}
 			b++;
@@ -40,8 +40,8 @@ void ft_print_comb(void)
 	}
 }
 
-int	main(void)
-{
-	ft_print_comb();
-	return(0);
-}
+// int	main(void)
+// {
+// 	ft_print_comb();
+// 	return (0);
+// }
