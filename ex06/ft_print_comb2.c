@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:33 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 16:32:25 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/18 14:35:06 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
-	if (nb > 10)
+	if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
 	}
@@ -53,7 +53,7 @@ void	ft_print_comb2(void)
 			else
 				ft_putnbr(b);
 			if ((a + b) != 197)
-				write(1, " ,", 2);
+				write(1, ", ", 2);
 			b++;
 		}
 		a++;
