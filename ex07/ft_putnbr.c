@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:30:46 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 16:32:30 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/18 14:31:03 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
-	if (nb == 2147483647)
+	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
 		return ;
@@ -29,7 +29,7 @@ void	ft_putnbr(int nb)
 		write(1, "-", 1);
 		nb = 0 - nb;
 	}
-	if (nb > 10)
+	if (nb >= 10)
 	{
 		ft_putnbr(nb / 10);
 	}
