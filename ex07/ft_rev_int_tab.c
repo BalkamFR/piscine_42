@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:15:40 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 22:57:03 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/17 23:04:08 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	tab2[size + 15];
+	int	tab2[size + 1];
 	int	i;
 	int	temp;
 
