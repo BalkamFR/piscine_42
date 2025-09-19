@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:35:13 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 13:44:39 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:00:43 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,34 @@ void ft_ultimate_ft(int *********nbr)
 	*********nbr = 42;
 }
 
-int	main(void)
-{
-	int base;
-	int *a;
-	int **b;
-	int ***c;
-	int ****d;
-	int *****e;
-	int ******f;
-	int *******g;
-	int ********h;
-	int *********i;
+// int	main(void)
+// {
+// 	int base;
+// 	int *a;
+// 	int **b;
+// 	int ***c;
+// 	int ****d;
+// 	int *****e;
+// 	int ******f;
+// 	int *******g;
+// 	int ********h;
+// 	int *********i;
 	
-	base = 0;
+// 	base = 0;
 	
-	a = &base;
-	b = &a;
-	c = &b;
-	d = &c;
-	e = &d;
-	f = &e;
-	g = &f;
-	h = &g;
-	i = &h;
+// 	a = &base;
+// 	b = &a;
+// 	c = &b;
+// 	d = &c;
+// 	e = &d;
+// 	f = &e;
+// 	g = &f;
+// 	h = &g;
+// 	i = &h;
 
-	printf("avant : %d\n", base);
-	ft_ultimate_ft(i);
-	printf("avant : %d", base);
+// 	printf("avant : %d\n", base);
+// 	ft_ultimate_ft(i);
+// 	printf("avant : %d", base);
 
 
-}
+// }

@@ -6,11 +6,10 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:09:28 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 14:14:11 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:00:51 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
 
 int ft_strlen(char *str)
 {
@@ -25,12 +24,12 @@ int ft_strlen(char *str)
 	return(i);
 }
 
-#include<stdio.h>
+// #include<stdio.h>
 
-int	main(void)
-{
-	int	a;
+// int	main(void)
+// {
+// 	int	a;
 
-	a = ft_strlen("123456789 ");
-	printf("%d", a);
-}
+// 	a = ft_strlen("123456789 ");
+// 	printf("%d", a);
+// }

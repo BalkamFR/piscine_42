@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:00:33 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 14:07:23 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:01:07 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void ft_ultimate_div_mod(int *a, int *b)
 	*b = rest;
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	int	a;
-	int	b;
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	int	a;
+// 	int	b;
 	
-	a = 11;
-	b = 2;
+// 	a = 11;
+// 	b = 2;
 
 
-	ft_ultimate_div_mod(&a, &b);
-	printf("resultat : %d\nrest : %d \n", a, b);
-}
+// 	ft_ultimate_div_mod(&a, &b);
+// 	printf("resultat : %d\nrest : %d \n", a, b);
+// }

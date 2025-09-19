@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:07:38 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/17 14:09:14 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:00:59 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void ft_putstr(char *str)
 	}
 }
 
-int	main(void)
-{
-	ft_putstr("hello world !");
-}
+// int	main(void)
+// {
+// 	ft_putstr("hello world !");
+// }
