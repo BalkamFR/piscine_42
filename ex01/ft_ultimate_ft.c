@@ -6,13 +6,13 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:35:13 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/19 10:00:43 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:16:17 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
-void ft_ultimate_ft(int *********nbr)
+void	ft_ultimate_ft(int *********nbr)
 {
 	*********nbr = 42;
 }
@@ -29,9 +29,9 @@ void ft_ultimate_ft(int *********nbr)
 // 	int *******g;
 // 	int ********h;
 // 	int *********i;
-	
+
 // 	base = 0;
-	
+
 // 	a = &base;
 // 	b = &a;
 // 	c = &b;
@@ -45,6 +45,5 @@ void ft_ultimate_ft(int *********nbr)
 // 	printf("avant : %d\n", base);
 // 	ft_ultimate_ft(i);
 // 	printf("avant : %d", base);
-
 
 // }

@@ -6,14 +6,13 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:29:26 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/19 10:00:47 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:18:31 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 
-#include<stdio.h>
-
-void ft_ft(int *nbr)
+void	ft_ft(int *nbr)
 {
 	*nbr = 42;
 }

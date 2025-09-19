@@ -6,17 +6,17 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:45:27 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/19 10:00:38 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:16:14 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int	temps;
 
 	temps = *b;
 	*b = *a;
-	*a = temps;	
+	*a = temps;
 }
 
 // #include <stdio.h>

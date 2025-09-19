@@ -6,22 +6,23 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:09:28 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/19 10:00:51 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/19 10:15:58 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (*str)
 	{
 		str++;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 // #include<stdio.h>
