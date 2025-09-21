@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 10:50:12 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/21 22:25:43 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/21 22:28:56 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void	put_line(int x, char left, char middle, char right)
 		i++;
 	}
 }
+/* charset
+	[0 = horizontal ;  1 = vertical]
+	[2 = topleft ; 3 = topright]
+	[4 = botleft ; 5 = botright]
+*/
 
 void	rush(int x, int y, char *charset)
 {
