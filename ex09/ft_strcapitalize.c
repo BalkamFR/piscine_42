@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 21:28:34 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/21 10:32:44 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/21 13:05:17 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ char	*ft_strcapitalize(char *str)
 		{
 			if (ft_str_is_alpha(str[i - 1]) == 0)
 				str[i] -= 32;
-			i++;
 		}
+		i++;
 	}
 	return (str);
 }
@@ -64,8 +64,8 @@ char	*ft_strcapitalize(char *str)
 
 // int	main(void)
 // {
-// 	char src[] = "hi,
-// how are you? 42words forty-two; fifty+and+oneRekt17+Lol MDr";
+// 	char src[] = "hi,how are you? 42words forty-t
+//wo; fifty+and+oneRekt17+Lol MDr";
 
 // 	printf("%s\n", src);
 // 	ft_strcapitalize(src);

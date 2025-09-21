@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:06:51 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/21 10:24:53 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/21 13:02:16 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	while (i < n)
 	{
 		dest[i] = '\0';
+		i++;
 	}
 	return (dest);
 }
