@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 10:15:01 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/25 19:36:13 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/25 20:04:17 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = ft_strlen(dest);
 	a = 0;
-	while (dest[a] && a < nb)
+	while (src[a] && a < nb)
 	{
 		dest[i] = src[a];
 		i++;
