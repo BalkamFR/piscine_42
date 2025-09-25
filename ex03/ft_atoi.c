@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 11:10:31 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/22 14:08:38 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/25 16:40:47 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,28 @@ int	ft_atoi(char *str)
 	sign = 1;
 	i = 0;
 	res = 0;
-	while (str[i] && (str[i] == '-' || str[i] == '+' || str[i] == ' '))
+	while ((str[i]) && ((str[i] <= 32) || (str[i] == ' ' || str[i] == '-'
+				|| str[i] == '+')))
 	{
-		if (str[i]=='-')
+		if (str[i] == '-')
 			sign = sign * -1;
-		i++;	
+		i++;
 	}
-	
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10;
 		res = res + (str[i] - '0');
 		i++;
 	}
-	return (res*sign);
+	return (res * sign);
 }
 
-int	main(int argc, char **argv)
-{
-	printf("%d", ft_atoi(argv[1]));
-	return(0);
-}
+// int	main(void)
+// {
+// 	printf("%d\n", ft_atoi("--\n-56d3"));
+// 	printf("%d\n", ft_atoi("--n-56d3"));
+// 	printf("%d\n", ft_atoi("5656+565656"));
+// 	printf("%d\n", ft_atoi("--4544"));
+// 	printf("%d\n", ft_atoi("-45645656"));
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 13:35:09 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/23 17:25:35 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/25 16:50:33 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,55 +28,46 @@ int	char_askii(char c)
 
 	i = c;
 	if (c >= '0' && c <= '9')
-		return(c - '0');
-	return (c);
+		return (c - '0');
+	return (i);
 }
 
-int	int_base(int nb, char *base, char *temp_tab)
+int	int_base(int nb, char *base)
 {
-	int		len_base;
-	int		temp_nb;
-	int		i;
-	char	tab2[] = "";
+	int	len_base;
+	int	temp_nb;
+	int	i;
+	int	res;
 
 	i = 0;
+	res = 0;
 	temp_nb = 0;
 	len_base = len_str(base);
 	while (len_base <= nb && nb != 0)
 	{
 		temp_nb = nb % len_base;
-		temp_tab[i] = base[temp_nb] char_askii();
+		res = (res * 10);
+		res = (char_askii(base[temp_nb]) + res);
+		res = (res * 10) + res;
 		nb = nb / len_base;
 		i++;
 	}
-	temp_tab[i] = base[nb];
-	temp_tab[i + 1] = '\0';
-	temp_nb = 0;
-	return (i + 1);
+	res = (res * 10);
+	res = (char_askii(base[temp_nb]) + res);
+	return (res);
 }
+
 int	ft_atoi_base(char *str, char *base)
 {
 	int	res;
 	int	i;
-	int	neg;
 
-	res = 0;
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
 	return (res);
 }
 
 int	main(void)
 {
-	char tab[50] = "";
-	int c;
+	int	c;
 
-	c = int_base(10, "01", tab);
-	printf("%s len : %d\n", tab, c);
-	printf("%d", char_askii('a'));
-
-	// printf("\n%d", ft_atoi_base("50", "0123456789"));
+	c = int_base(5, "01");
 }

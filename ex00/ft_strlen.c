@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 10:07:07 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/22 10:12:43 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/25 16:37:36 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	ft_strlen(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
-#include<stdio.h>
+// #include<stdio.h>
 
-int main(void)
-{
-	printf("%d", ft_strlen("caca"));
-	return 0;
-}
+// int main(void)
+// {
+// 	printf("%d", ft_strlen("caca"));
+// 	return (0);
+// }
