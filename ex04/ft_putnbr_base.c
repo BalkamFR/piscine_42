@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:06:04 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/25 16:49:39 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/29 10:20:54 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ void	ft_putnbr_base(int nb, char *base)
 // 	ft_putnbr_base(012345, "0");
 // 	write(1, "\n", 1);
 // 	ft_putnbr_base(012345, "da+");
+// 	write(1, "\n", 1);
+// 	ft_putnbr_base(012345, "d");
 // 	return (0);
 // }

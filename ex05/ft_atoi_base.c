@@ -6,68 +6,100 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 13:35:09 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/25 16:50:33 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/29 10:31:58 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	len_str(char *str)
-{
-	int	i;
+// int	verif_tab(char *str)
+// {
+// 	int	i;
+// 	int	a;
+// 	int	len;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+// 	a = 0;
+// 	len = 0;
+// 	i = 0;
+// 	while (str[len])
+// 		len++;
+// 	while (str[i])
+// 	{
+// 		a = i + 1;
+// 		while (a <= len)
+// 		{
+// 			if (str[a] == str[i])
+// 				return (0);
+// 			a++;
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
-int	char_askii(char c)
-{
-	int	i;
+// int	len_str(char *str)
+// {
+// 	int	i;
 
-	i = c;
-	if (c >= '0' && c <= '9')
-		return (c - '0');
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i])
+// 		i++;
+// 	return (i);
+// }
 
-int	int_base(int nb, char *base)
-{
-	int	len_base;
-	int	temp_nb;
-	int	i;
-	int	res;
+// int	char_askii(char c)
+// {
+// 	int	i;
 
-	i = 0;
-	res = 0;
-	temp_nb = 0;
-	len_base = len_str(base);
-	while (len_base <= nb && nb != 0)
-	{
-		temp_nb = nb % len_base;
-		res = (res * 10);
-		res = (char_askii(base[temp_nb]) + res);
-		res = (res * 10) + res;
-		nb = nb / len_base;
-		i++;
-	}
-	res = (res * 10);
-	res = (char_askii(base[temp_nb]) + res);
-	return (res);
-}
+// 	i = c;
+// 	if (c >= '0' && c <= '9')
+// 		return (c - '0');
+// 	return (i);
+// }
 
-int	ft_atoi_base(char *str, char *base)
-{
-	int	res;
-	int	i;
+// int	int_base(int nb, char *base)
+// {
+// 	int	len_base;
+// 	int	temp_nb;
+// 	int	i;
+// 	int	res;
 
-	return (res);
-}
+// 	i = 0;
+// 	res = 0;
+// 	temp_nb = 0;
+// 	len_base = len_str(base);
+// 	while (len_base <= nb && nb != 0)
+// 	{
+// 		temp_nb = nb % len_base;
+// 		res = res * 10;
+// 		res = (base[temp_nb] - '0') + res;
+// 		nb = nb / len_base;
+// 		i++;
+// 	}
 
-int	main(void)
-{
-	int	c;
+// 	return (res);
+// }
 
-	c = int_base(5, "01");
-}
+// // int	ft_atoi_base(char *str, char *base)
+// // {
+// // 	int	res;
+// // 	int	i;
+
+// // 	return (res);
+// // }
+
+// int	main(void)
+// {
+// 	int	i;
+
+// 	i = 256;
+// 	while (i < 1024)
+// 	{
+// 		printf("%d\n", int_base(i, "1234"));
+// 		printf("%d\n", int_base(i, "2341"));
+// 		printf("%d\n", int_base(i, "3412"));
+// 		printf("%d\n\n", int_base(i, "4123"));
+// 		i++;
+// 	}
+
+// }
