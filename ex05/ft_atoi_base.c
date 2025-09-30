@@ -6,100 +6,93 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 13:35:09 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/29 10:31:58 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/30 17:09:12 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	len_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	base_valide(char *base)
+{
+	int	i;
+	int	a;
+
+	i = 0;
+	a = 0;
+	if (len_str(base) <= 1)
+		return (0);
+	while (base[i])
+	{
+		a = i;
+		while (base[a])
+		{
+			if ((base[a] == base[i - 1]) || (base[a] == ' ' || base[a] == '+'
+					|| base[a] == '-'))
+				return (0);
+			a++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	convert_value(char find, char *base)
+{
+	int	i;
+
+	i = 0;
+	while (base[i])
+	{
+		if (base[i] == find)
+			return (i);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int	res;
+	int	i;
+	int	sign;
+	int	len_base;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	if (base_valide(base) == 0)
+		return (0);
+	len_base = len_str(base);
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i])
+	{
+		res = res * len_base + convert_value(str[i], base);
+		i++;
+	}
+	return (res * sign);
+}
+
 // #include <stdio.h>
 
-// int	verif_tab(char *str)
+// int	main(int argc, char **argv)
 // {
-// 	int	i;
-// 	int	a;
-// 	int	len;
-
-// 	a = 0;
-// 	len = 0;
-// 	i = 0;
-// 	while (str[len])
-// 		len++;
-// 	while (str[i])
-// 	{
-// 		a = i + 1;
-// 		while (a <= len)
-// 		{
-// 			if (str[a] == str[i])
-// 				return (0);
-// 			a++;
-// 		}
-// 		i++;
-// 	}
-// 	return (1);
+// 	printf("%d", ft_atoi_base(argv[1], argv[2]));
+// 	(void)argc;
+// 	return (0);
 // }
-
-// int	len_str(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }
-
-// int	char_askii(char c)
-// {
-// 	int	i;
-
-// 	i = c;
-// 	if (c >= '0' && c <= '9')
-// 		return (c - '0');
-// 	return (i);
-// }
-
-// int	int_base(int nb, char *base)
-// {
-// 	int	len_base;
-// 	int	temp_nb;
-// 	int	i;
-// 	int	res;
-
-// 	i = 0;
-// 	res = 0;
-// 	temp_nb = 0;
-// 	len_base = len_str(base);
-// 	while (len_base <= nb && nb != 0)
-// 	{
-// 		temp_nb = nb % len_base;
-// 		res = res * 10;
-// 		res = (base[temp_nb] - '0') + res;
-// 		nb = nb / len_base;
-// 		i++;
-// 	}
-
-// 	return (res);
-// }
-
-// // int	ft_atoi_base(char *str, char *base)
-// // {
-// // 	int	res;
-// // 	int	i;
-
-// // 	return (res);
-// // }
-
-// int	main(void)
-// {
-// 	int	i;
-
-// 	i = 256;
-// 	while (i < 1024)
-// 	{
-// 		printf("%d\n", int_base(i, "1234"));
-// 		printf("%d\n", int_base(i, "2341"));
-// 		printf("%d\n", int_base(i, "3412"));
-// 		printf("%d\n\n", int_base(i, "4123"));
-// 		i++;
-// 	}
-
-// }
+// abcdefghijklmnopqrstuvwxyz
