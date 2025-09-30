@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 13:35:09 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/30 17:09:12 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/09/30 22:45:06 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	base_valide(char *base)
 	int	i;
 	int	a;
 
-	i = 0;
+	i = 1;
 	a = 0;
 	if (len_str(base) <= 1)
 		return (0);
@@ -58,6 +58,20 @@ int	convert_value(char find, char *base)
 	return (0);
 }
 
+int	compr(char c, char *base)
+{
+	int	i;
+
+	i = 0;
+	while (base[i])
+	{
+		if (base[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_atoi_base(char *str, char *base)
 {
 	int	res;
@@ -79,7 +93,7 @@ int	ft_atoi_base(char *str, char *base)
 			sign *= -1;
 		i++;
 	}
-	while (str[i])
+	while (str[i] && compr(str[i], base) == 1)
 	{
 		res = res * len_base + convert_value(str[i], base);
 		i++;
@@ -95,4 +109,3 @@ int	ft_atoi_base(char *str, char *base)
 // 	(void)argc;
 // 	return (0);
 // }
-// abcdefghijklmnopqrstuvwxyz
