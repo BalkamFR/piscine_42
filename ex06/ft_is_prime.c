@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 19:04:38 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/30 09:18:36 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/01 16:45:38 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_is_prime(int nb)
 
 	c = 1;
 	res = 1;
+	if (nb <= 1)
+		return (0);
 	while (res < nb)
 	{
 		if (nb % res == 0)
@@ -32,10 +34,13 @@ int	ft_is_prime(int nb)
 
 // int	main(void)
 // {
-// 	printf("%d\n", ft_is_prime(5));
-// 	printf("%d\n", ft_is_prime(8));
-// 	printf("%d\n", ft_is_prime(11));
-// 	printf("%d\n", ft_is_prime(13));
-// 	printf("%d\n", ft_is_prime(17));
+// 	int i;
+// 	i = -5;
+// 	while (i < 20)
+// 	{
+// 		printf("res = %d nb = %d", ft_is_prime(i), i);
+// 		printf("\n----------------\n");
+// 		i++;
+// 	}
 // 	return (0);
 // }

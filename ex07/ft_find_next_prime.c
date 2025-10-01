@@ -6,17 +6,19 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:47:35 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/30 09:14:45 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/01 16:48:33 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_find_next_prime(int nb)
+int	ft_is_prime(int nb)
 {
 	int	res;
 	int	c;
 
 	c = 1;
 	res = 1;
+	if (nb <= 1)
+		return (0);
 	while (res < nb)
 	{
 		if (nb % res == 0)
@@ -24,19 +26,27 @@ int	ft_find_next_prime(int nb)
 		res++;
 	}
 	if (c > 2)
-	{
-		while (nb % res == 0)
-			res++;
-	}
-	return (res);
+		return (0);
+	return (1);
 }
 
-// #include <stdio.h>
+int	ft_find_next_prime(int nb)
+{
+	while (ft_is_prime(nb) != 1)
+		nb++;
+	return (nb);
+}
 
-// int	main(void)
-// {
-// 	printf("%d\n", ft_find_next_prime(5));
-// 	printf("%d\n", ft_find_next_prime(7));
-// 	printf("%d\n", ft_find_next_prime(8));
-// 	printf("%d ", ft_find_next_prime(12));
-// }
+#include <stdio.h>
+
+int	main(void)
+{
+	int	i;
+	i = -5;
+	while (i < 20)
+	{
+		printf("nb = %d next prime = %d", i, ft_find_next_prime(i));
+		printf("\n-----------------------\n");
+		i++;
+	}
+}
