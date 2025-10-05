@@ -1,62 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 12:13:18 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/04 20:57:54 by papilaz          ###   ########.fr       */
+/*   Created: 2025/10/04 21:23:28 by papilaz           #+#    #+#             */
+/*   Updated: 2025/10/04 23:20:16 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_lenstr(char *str)
+void	free_malloc(char **str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
-		i++;
-	return(i);
-}
-void	print_erreur(char *str)
-{
-	while (*str)
 	{
-		write(2, str, 1);
-		str++;
+		free(str[i]);
+		i++;
 	}
+	free(str);
 }
 
-void	put_only_char(char *str)
+void	all_null_malloc(char *str)
 {
-	int	i;
-	
+	int i;
+
 	i = 0;
-	while (str[i] != ' ')
-		i++;
-	i++;
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		str[i] = '\0';
 		i++;
 	}
-	ft_putstr(" ");
-
 }

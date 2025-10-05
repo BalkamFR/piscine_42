@@ -1,7 +1,7 @@
 # Variables
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
-SOURCES = main.c utils.c
+SOURCES = test_open.c  main.c utils.c convert_digit.c split.c
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = main
 
