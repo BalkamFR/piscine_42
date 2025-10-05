@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 21:23:28 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/04 23:20:16 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/05 18:41:09 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_malloc(char **str)
 
 void	all_null_malloc(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

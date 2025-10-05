@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 12:13:18 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/04 20:57:54 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/05 18:41:37 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int	ft_lenstr(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
+
 void	print_erreur(char *str)
 {
 	while (*str)
@@ -47,7 +48,7 @@ void	print_erreur(char *str)
 void	put_only_char(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i] != ' ')
 		i++;
@@ -58,5 +59,4 @@ void	put_only_char(char *str)
 		i++;
 	}
 	ft_putstr(" ");
-
 }

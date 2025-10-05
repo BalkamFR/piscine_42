@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_open.c                                        :+:      :+:    :+:   */
+/*   open_files.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 13:49:59 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/05 14:03:08 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/05 18:40:14 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 #define BUFFER_SIZE 691
 
+void	print_erreur(char *str);
 void	ft_putchar(char c);
 void	all_null_malloc(char *str);
 
@@ -75,8 +75,6 @@ void	add_data_number(char **dico_number, char *dico_number_brut)
 			b++;
 		}
 		dico_number[i][b] = '\0';
-		// printf("tab[%d] len(%d) data(%s) \n", i,
-		// 	count_len_line(dico_number_brut, i), dico_number[i]);
 		b = 0;
 		a++;
 		i++;
@@ -96,7 +94,8 @@ char	**create_tab(char *dico_number_brut)
 		return (0);
 	while (i < line_tab)
 	{
-		dico_number[i] = malloc(sizeof(char) * (count_len_line(dico_number_brut, i) + 2) + 1);
+		dico_number[i] = malloc(sizeof(char) * (count_len_line(dico_number_brut,
+						i) + 2) + 1);
 		all_null_malloc(dico_number[i]);
 		if (!dico_number[i])
 			return (0);
@@ -106,6 +105,7 @@ char	**create_tab(char *dico_number_brut)
 	add_data_number(dico_number, dico_number_brut);
 	return (dico_number);
 }
+
 char	**read_and_create_tab(char *dest_dico)
 {
 	int		fd1;
@@ -119,7 +119,7 @@ char	**read_and_create_tab(char *dest_dico)
 	nb_read = read(fd1, dico_number_brut, BUFFER_SIZE);
 	if (nb_read == -1)
 	{
-		printf("Erreur de lecture !\n");
+		print_erreur("Erreur");
 		return (0);
 	}
 	dico_number_brut[nb_read] = '\0';

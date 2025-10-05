@@ -1,7 +1,6 @@
-# Variables
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-SOURCES = test_open.c  main.c utils.c convert_digit.c split.c
+SOURCES = open_files.c  main.c utils.c utils2.c convert_digit.c convert_digit_2.c split.c
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = main
 
@@ -11,13 +10,9 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CC) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(TARGET)
 
-re: fclean all
