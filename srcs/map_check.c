@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/06 16:29:58 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/06 16:42:52 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,17 @@ void	fill_map(char *file_name, char **map, int count)
 
 	i = 0;
 	bytes_read = 1;
-	printf("%s", file_name);
-	return;
+	
 	fdesc = open(file_name, O_RDONLY);
 	while (bytes_read != 0)
 	{
 		map[i] = malloc(sizeof(char) * (count + 1));
-		bytes_read = read(fdesc, &map[i], count);
-		map[i][count] = '\0';
+		printf("%s\n", map[i]);
+		bytes_read = read(fdesc, map[i], count);
+		printf("%s", map[i]);
 		i++;
 	}
 	close(fdesc);
-	free(c);
 }
 
 int	count_all_line(char *file_name, char **map)
@@ -122,11 +121,11 @@ char	**read_file(char *file_name)
 	map = 0;
 	res = count_all_line(file_name, map);
 
-	while (map[i] != NULL)
-	{
-		printf("%s", map[i]);
-		i++;
-	}
+	// while (map[i] != NULL)
+	// {
+	// 	printf("%s", map[i]);
+	// 	i++;
+	// }
 
 	return (map);
 }
