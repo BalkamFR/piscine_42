@@ -5,7 +5,7 @@ NAME = bsq
 
 .SUFFIXES: .c .o
 
-OBJS = srcs/convert.o srcs/dict.o srcs/ft_split.o srcs/ft.o srcs/main.o srcs/tab.o
+OBJS = $(SOURCES:.c=.o)
 SRCS = srcs/convert.c srcs/dict.c srcs/ft_split.c srcs/ft.c srcs/main.c srcs/tab.c
 
 all: $(NAME)
