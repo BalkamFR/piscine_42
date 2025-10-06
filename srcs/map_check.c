@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/06 16:42:52 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/06 20:38:41 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,33 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "../includes/ft_split.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	print_maps(char **maps)
+{
+	int	i;
+	int	a;
+	
+	a = 0;
+	i = 0;
+	while (maps[i])
+	{
+		a = 0;
+		while (maps[i][a] && maps[i])
+		{
+			ft_putchar(maps[i][a]);
+			a++;
+		}
+		i++;
+	}
+	
+	
+}
+
 
 int	count_line(char *maps)
 {
@@ -61,7 +88,6 @@ int	count_line_len(char *file_name)
 
 void	fill_map(char *file_name, char **map, int count)
 {
-	char	*c;
 	int		bytes_read;
 	int		fdesc;
 	int		i;
@@ -73,11 +99,13 @@ void	fill_map(char *file_name, char **map, int count)
 	while (bytes_read != 0)
 	{
 		map[i] = malloc(sizeof(char) * (count + 1));
-		printf("%s\n", map[i]);
 		bytes_read = read(fdesc, map[i], count);
-		printf("%s", map[i]);
+		printf("%d\n", count);
 		i++;
 	}
+	map[i] = NULL;
+	printf("\n");
+	print_maps(map);
 	close(fdesc);
 }
 
