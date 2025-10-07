@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 17:23:39 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 20:47:44 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	fill_map(char *file_name, char **map, int count)
 	i++;
 	while (bytes_read != 0)
 	{
-		map[i] = malloc(sizeof(char) * (count));
+		map[i] = malloc(sizeof(char) * (count + 1) * 2);
 		map[i][0] = '\0';
 		bytes_read = read(fdesc, map[i], count);
-		map[i][count - 1] = '\0';
+		map[i][count] = '\0';
 		i++;
 	}
 	map[i] = NULL;
@@ -90,9 +90,9 @@ char	**count_all_line(char *file_name, char **map, int *nb_lines)
 		*nb_lines += 1;
 	}
 	close(fdesc);
-	map = malloc(sizeof(char *) * (*nb_lines + 1));
+	map = malloc(sizeof(char *) * (*nb_lines + 1) * 2);
 	fill_map(file_name, map, count);
-	map[*nb_lines] = NULL;
+	map[*nb_lines - 1] = NULL;
 	free(c);
 	return (map);
 }

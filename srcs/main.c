@@ -6,12 +6,12 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 17:30:07 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 20:45:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/params.h"
-#include "../includes/map_check.h"
+#include "../includes/map.h"
 #include "../includes/utils.h"
 #include "../includes/free.h"
 #include <stdio.h>
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	printf("BLOCK : %c\n", params->block);
 	printf("FULL : %c\n", params->full);
 	printf("SIZE OF MAP : %d\n", params->size);
+	printf("MAP VALID? : %d\n", is_map_valid(map, params));
 	free_all(map, params);
 	return (0);
 }

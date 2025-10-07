@@ -6,3 +6,4 @@ bsq
 mapgen
 .vscode/*
 srcs/*.o
+prout

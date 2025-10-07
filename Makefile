@@ -7,6 +7,7 @@ SRCS = srcs/check_coords.c \
 	srcs/free.c \
 	srcs/main.c \
 	srcs/create_map.c \
+	srcs/map_check.c \
 	srcs/params.c \
 	srcs/utils.c \
 	srcs/utils2.c
