@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:14:49 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/07 16:32:04 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 21:39:12 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,32 @@ int	len_str(char *str)
 	return (i);
 }
 
-int	check_number_valide(char *nbr, char *base)
+long int	check_nbr(char *nbr, char c)
 {
-	int	len_nbr;
-	int	len;
-	int	i;
-	int	a;
+	long int	i;
+
+	i = 0;
+	while (nbr[i])
+	{
+		if (nbr[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+long int	check_number_valide(char *nbr, char *base)
+{
+	long int	len;
+	long int	i;
+	long int	a;
 
 	a = 0;
 	len = 0;
 	i = 0;
-	while ((nbr[a] >= 9 && nbr[a] <= 13) || (nbr[a] == 32 || nbr[a] == '-' || nbr[a] == '+'))
+	while ((nbr[a] >= 9 && nbr[a] <= 13) || (nbr[a] == 32 || nbr[a] == '-'
+			|| nbr[a] == '+'))
 		a++;
-	len_nbr = len_str(nbr + a);
 	while (nbr[a])
 	{
 		i = 0;
@@ -47,14 +60,14 @@ int	check_number_valide(char *nbr, char *base)
 		}
 		a++;
 	}
-	if (len == len_nbr)
+	if (len == len_str(nbr + a))
 		return (1);
 	return (0);
 }
 
-int	convert_value(char find, char *base)
+long int	convert_value(char find, char *base)
 {
-	int	i;
+	long int	i;
 
 	i = 0;
 	while (base[i])
@@ -65,10 +78,10 @@ int	convert_value(char find, char *base)
 	}
 	return (0);
 }
-int	base_valide(char *base)
+long int	base_valide(char *base)
 {
-	int	i;
-	int	a;
+	long int	i;
+	long int	a;
 
 	i = 1;
 	a = 0;
@@ -98,9 +111,10 @@ int	ft_atoi_base(char *str, char *base)
 
 	i = 0;
 	sign = 1;
+
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while ((str[i] == '-' || str[i] == '+'))
 	{
 		if (str[i] == '-')
 			sign *= -1;
@@ -108,12 +122,12 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	res = 0;
 	len_base = len_str(base);
-	while (str[i])
+	while (check_nbr(base, str[i]) == 1)
 	{
 		res = res * len_base + convert_value(str[i], base);
 		i++;
 	}
-	return (res);
+	return (res * sign);
 }
 
 int	invert_tab(char *str)
@@ -144,36 +158,45 @@ int	invert_tab(char *str)
 	return (0);
 }
 
-char	*ft_putnbr_base(int nb, char *base, char *res)
+char	*ft_putnbr_base(long int nb, char *base, char *res)
 {
-	int	len_base;
-	int	temp_nb;
-	int	i;
+	long int	sign;
+	long int	temp_nb;
+	long int	i;
 
 	i = 0;
 	temp_nb = 0;
-	len_base = len_str(base);
-	while (len_base <= nb)
+	sign = 0;
+	if (nb < 0)
+		sign = 1;
+	if (nb < 0)
+		nb = nb * -1;
+	while (len_str(base) <= nb)
 	{
-		temp_nb = nb % len_base;
+		temp_nb = nb % len_str(base);
 		res[i] = base[temp_nb];
-		nb = nb / len_base;
+		nb = nb / len_str(base);
 		i++;
 	}
-	temp_nb = nb % len_base;
+	temp_nb = nb % len_str(base);
 	res[i] = base[temp_nb];
+	if (sign == 1)
+	{
+		res[i + 1] = '-';
+		i++;
+	}
 	res[i + 1] = '\0';
 	return (res);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		res;
-	char	*res_convert;
+	long int	res;
+	char		*res_convert;
 
-	if (base_valide(base_to) == 0 || check_number_valide(nbr, base_from) == 0)
+	if (base_valide(base_to) == 0)
 		return (0);
-	res_convert = malloc(sizeof(char) * 5000);
+	res_convert = malloc(sizeof(char) * 340);
 	if (!res_convert)
 		return (0);
 	res = ft_atoi_base(nbr, base_from);
@@ -186,21 +209,16 @@ int	main(int argc, char **argv)
 {
 	char *res;
 
-	res = ft_convert_base("5", "0123456789", "01");
+	res = ft_convert_base("7894545646", "012345789", "012345789");
 	printf("%s\n", res);
 	free(res);
-	res = ft_convert_base("d", "a", "0123456789");
-	printf("%s\n", res);
-	free(res);
-	res = ft_convert_base("78", "79", "01");
-	printf("%s\n", res);
-	free(res);
-	if (argc == 4)
-	{
-		res = ft_convert_base(argv[1], argv[2], argv[3]);
-		printf("argc,argv :%s\n", res);
-		free(res);
-	}
-
+	// if (argc == 4)
+	// {
+	// 	res = ft_convert_base(argv[1], argv[2], argv[3]);
+	// 	printf("argc,argv :%s\n", res);
+	// 	free(res);
+	// }
+	(void)argc;
+	(void)argv;
 	return (0);
 }
