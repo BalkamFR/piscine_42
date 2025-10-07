@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:26:51 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/07 11:33:23 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 12:11:41 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	edit_map(int x, int y, char value, char **map)
 {

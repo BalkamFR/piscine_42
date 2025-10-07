@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 11:33:26 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 13:20:52 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_split.h"
 #include "../includes/params_check.h"
+#include "../includes/utils.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,6 +49,7 @@ int	count_line_len(char *file_name)
 	count = 0;
 	file_lenght = 0;
 	bytes_read = 1;
+	c[1] = 0;
 	fdesc = open(file_name, O_RDONLY);
 	while (bytes_read != 0)
 	{
@@ -134,10 +136,8 @@ int	main(void)
 
 	map = read_file("pipi");
 	// find_line(map, 0, 'o');
-	// params = read_params("pipi");
 	print_maps(map);
 	printf("\n");
-	// printf("params -> %s", params);
-	// free_all(map, params);
+	free_all(map, params);
 	return (0);
 }
