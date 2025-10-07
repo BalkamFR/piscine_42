@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/06 20:38:41 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 10:43:21 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "../includes/ft_split.h"
+#include "../includes/params_check.h"
+
+void	free_all(char **map, char *params);
 
 void	ft_putchar(char c)
 {
@@ -25,7 +28,7 @@ void	print_maps(char **maps)
 {
 	int	i;
 	int	a;
-	
+
 	a = 0;
 	i = 0;
 	while (maps[i])
@@ -38,10 +41,7 @@ void	print_maps(char **maps)
 		}
 		i++;
 	}
-	
-	
 }
-
 
 int	count_line(char *maps)
 {
@@ -94,30 +94,26 @@ void	fill_map(char *file_name, char **map, int count)
 
 	i = 0;
 	bytes_read = 1;
-	
 	fdesc = open(file_name, O_RDONLY);
 	while (bytes_read != 0)
 	{
 		map[i] = malloc(sizeof(char) * (count + 1));
 		bytes_read = read(fdesc, map[i], count);
-		printf("%d\n", count);
+		//printf("%s", map[i]);
 		i++;
 	}
 	map[i] = NULL;
-	printf("\n");
-	print_maps(map);
 	close(fdesc);
 }
 
-int	count_all_line(char *file_name, char **map)
+char	**count_all_line(char *file_name, char **map, int *nb_lines)
 {
 	int		count;
 	int		bytes_read;
 	int		fdesc;
-	int		res;
 	char	*c;
 
-	res = 0;
+	*nb_lines = 0;
 	bytes_read = 1;
 	fdesc = open(file_name, O_RDONLY);
 	if (fdesc == -1)
@@ -127,39 +123,38 @@ int	count_all_line(char *file_name, char **map)
 	while (bytes_read != 0)
 	{
 		bytes_read = read(fdesc, c, count);
-		res = count_line(c) + res;
+		*nb_lines = count_line(c) + *nb_lines;
 	}
 	close(fdesc);
-	map = malloc(sizeof(char *) * (res + 1));
+	map = malloc(sizeof(char *) * (*nb_lines + 1));
 	fill_map(file_name, map, count);
-	map[res] = NULL;
+	map[*nb_lines] = NULL;
 	free(c);
-	return (res);
+	return (map);
 }
-
-
 
 char	**read_file(char *file_name)
 {
 	char	**map;
-	int		res;
+	int		nb_lines;
 	int		i;
 
 	i = 0;
 	map = 0;
-	res = count_all_line(file_name, map);
-
-	// while (map[i] != NULL)
-	// {
-	// 	printf("%s", map[i]);
-	// 	i++;
-	// }
-
+	map = count_all_line(file_name, map, &nb_lines);
 	return (map);
 }
 
 int	main(void)
 {
-	read_file("pipi");
+	char	**map;
+	char	*params;
+
+	map = read_file("pipi");
+	//params = read_params("pipi");
+	print_maps(map);
+	printf("\n");
+	//printf("params -> %s", params);
+	//free_all(map, params);
 	return (0);
 }
