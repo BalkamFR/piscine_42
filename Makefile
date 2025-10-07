@@ -6,7 +6,12 @@ NAME = bsq
 .SUFFIXES: .c .o
 
 OBJS = $(SOURCES:.c=.o)
-SRCS = srcs/convert.c srcs/dict.c srcs/ft_split.c srcs/ft.c srcs/main.c srcs/tab.c
+SRCS = srcs/check_coords.c \
+	srcs/free.c \
+	srcs/main.c \
+	srcs/map_check.c \
+	srcs/params.c \
+	srcs/utils.c
 
 all: $(NAME)
 
@@ -21,3 +26,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+re: fclean all

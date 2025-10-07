@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.h                                         :+:      :+:    :+:   */
+/*   check_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 11:03:23 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/06 11:03:50 by equentin         ###   ########.fr       */
+/*   Created: 2025/10/07 14:33:41 by equentin          #+#    #+#             */
+/*   Updated: 2025/10/07 14:46:55 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SPLIT_H
-# define FT_SPLIT_H
-
-char	**ft_split(char *str, char *charset);
-#endif
+int	check_coords_max()
+{
+	return (0);
+}

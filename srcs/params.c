@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   params_check.c                                     :+:      :+:    :+:   */
+/*   params.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 11:05:44 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 14:45:48 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 char	*write_params(char *file_name, int params_len)
 {
 	char	*params;
-	char	c;
 	int		fdesc;
 	int		i;
 
@@ -34,7 +33,6 @@ char	*write_params(char *file_name, int params_len)
 
 char	*read_params(char *file_name)
 {
-	char	*params;
 	char	c;
 	int		fdesc;
 	int		params_len;

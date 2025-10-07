@@ -6,12 +6,11 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 13:51:48 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:39:08 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_split.h"
-#include "../includes/params_check.h"
+#include "../includes/params.h"
 #include "../includes/utils.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -112,17 +111,4 @@ char	**read_file(char *file_name)
 	map = 0;
 	map = count_all_line(file_name, map, &nb_lines);
 	return (map);
-}
-
-int	main(void)
-{
-	char **map;
-	char *params;
-
-	map = read_file("pipi");
-	// find_line(map, 0, 'o');
-	print_maps(map);
-	printf("\n");
-	free_all(map);
-	return (0);
 }

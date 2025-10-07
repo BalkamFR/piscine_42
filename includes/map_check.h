@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_check.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 14:47:57 by equentin         ###   ########.fr       */
+/*   Created: 2025/10/07 14:40:11 by equentin          #+#    #+#             */
+/*   Updated: 2025/10/07 14:40:40 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/params.h"
-#include "../includes/map_check.h"
-#include "../includes/utils.h"
-#include "../includes/free.h"
+#ifndef MAP_CHECK_H
+# define MAP_CHECK_H
 
-int	main(int argc, char **argv)
-{
-	char	**map;
-	//int		**max_square;
-
-	(void)argc;
-	(void)argv;
-	map = read_file("pipi");
-	print_maps(map);
-	free_all(map);
-	return (0);
-}
+char	**read_file(char *file_name);
+#endif
