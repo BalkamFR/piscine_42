@@ -5,3 +5,4 @@ test
 bsq
 mapgen
 .vscode/*
+srcs/*.o

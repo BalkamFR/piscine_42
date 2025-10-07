@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   params.h                                           :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 08:41:44 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 16:17:25 by equentin         ###   ########.fr       */
+/*   Created: 2025/10/07 16:11:13 by equentin          #+#    #+#             */
+/*   Updated: 2025/10/07 17:14:33 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARAMS_H
-# define PARAMS_H
-
-typedef struct s_params
+int	ft_atoi(char *str)
 {
-	int		size;
-	char	empty;
-	char	block;
-	char	full;
-}	t_params;
-void	write_params(t_params *params, char **map);
-#endif
+	int		nb;
+	int		i;
+
+	nb = 0;
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		nb = (nb * 10) + (str[i++] - '0');
+
+	return (nb);
+}

@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 14:45:48 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 17:24:54 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "../includes/params.h"
+#include "../includes/utils.h"
 
-char	*write_params(char *file_name, int params_len)
+void	write_params(t_params *params, char **map)
 {
-	char	*params;
-	int		fdesc;
-	int		i;
+	int	params_len;
 
-	i = 0;
-	params = malloc(sizeof(char) * params_len);
-	fdesc = open(file_name, O_RDONLY);
-	while (i < params_len)
-		read(fdesc, &params[i++], 1);
-	params[i] = '\0';
-	close(fdesc);
-	return (params);
-}
-
-char	*read_params(char *file_name)
-{
-	char	c;
-	int		fdesc;
-	int		params_len;
-
-	params_len = 0;
-	fdesc = open(file_name, O_RDONLY);
-	while (read(fdesc, &c, 1))
-	{
-		params_len++;
-		if (c == '\n' && params_len)
-			break ;
-	}
-	close(fdesc);
-	return (write_params(file_name, params_len));
+	params_len = ft_strlen(map[0]);
+	params->full = map[0][params_len - 1];
+	params->block = map[0][params_len - 2];
+	params->empty = map[0][params_len - 3];
+	map[0][params_len - 3] = '\0';
+	params->size = ft_atoi(map[0]);
 }

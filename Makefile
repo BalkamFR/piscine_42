@@ -1,26 +1,25 @@
 CC ?= cc
-CFLAGS ?= -Wall -Wextra -Werror
+CFLAGS ?= -Wall -Wextra -Werror -g3
 INCLUDES ?= includes/
 NAME = bsq
 
-.SUFFIXES: .c .o
-
-OBJS = $(SOURCES:.c=.o)
 SRCS = srcs/check_coords.c \
 	srcs/free.c \
 	srcs/main.c \
 	srcs/map_check.c \
 	srcs/params.c \
-	srcs/utils.c
+	srcs/utils.c \
+	srcs/utils2.c
+OBJS = $(SRCS:.c=.o)
+
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(SRCS) -I$(INCLUDES) -o $(NAME)
+	$(CC) $(CFLAGS) $^ -I$(INCLUDES) -o $@
 
-srcs/.c srcs/.o:
-	$(CC) $(CFLAGS) -c $(SRCS) -I$(INCLUDES)
-
+%.o: %.c
+	$(CC) $(CFLAGS) -c $^ -o $@
 clean:
 	rm -f $(OBJS)
 

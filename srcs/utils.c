@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:26:51 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/07 13:54:04 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 16:06:52 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ char	get_coords(int x, int y, char **map)
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 void	print_maps(char **maps)

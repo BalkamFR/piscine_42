@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 14:39:08 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 17:23:39 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-void	find_line(char **maps, int x, char find);
-
-void	free_all(char **map);
-
 
 int	count_line_len(char *file_name)
 {
@@ -61,6 +56,7 @@ void	fill_map(char *file_name, char **map, int count)
 	fdesc = open(file_name, O_RDONLY);
 	map[i] = malloc(sizeof(char) * (6)); // TODO: COMPTER VRAIMENT LEN 1ERE LIGNE
 	bytes_read = read(fdesc, map[i], 6);
+	map[i][5] = '\0';
 	i++;
 	while (bytes_read != 0)
 	{
