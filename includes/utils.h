@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 08:52:15 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 13:51:54 by equentin         ###   ########.fr       */
+/*   Created: 2025/10/07 12:10:00 by equentin          #+#    #+#             */
+/*   Updated: 2025/10/07 13:54:15 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef UTILS_H
+# define UTILS_H
 
-void	free_all(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}
+void	edit_map(int x, int y, char value, char **map);
+char	get_coords(int x, int y, char **map);
+void	ft_putchar(char c);
+void	print_maps(char **maps);
+#endif

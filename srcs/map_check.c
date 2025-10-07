@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 13:20:52 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:51:48 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,8 @@
 
 void	find_line(char **maps, int x, char find);
 
-void	free_all(char **map, char *params);
+void	free_all(char **map);
 
-int	count_line(char *maps)
-{
-	int	count;
-	int	i;
-
-	i = 0;
-	count = 0;
-	while (maps[i])
-	{
-		if (maps[i] == '\n')
-			count++;
-		i++;
-	}
-	return (count);
-}
 
 int	count_line_len(char *file_name)
 {
@@ -75,15 +60,15 @@ void	fill_map(char *file_name, char **map, int count)
 	i = 0;
 	bytes_read = 1;
 	fdesc = open(file_name, O_RDONLY);
-	map[i] = malloc(sizeof(char) * (6));
+	map[i] = malloc(sizeof(char) * (6)); // TODO: COMPTER VRAIMENT LEN 1ERE LIGNE
 	bytes_read = read(fdesc, map[i], 6);
 	i++;
 	while (bytes_read != 0)
 	{
 		map[i] = malloc(sizeof(char) * (count));
+		map[i][0] = '\0';
 		bytes_read = read(fdesc, map[i], count);
-		map[i][count] = '\0';
-		// printf("%s#############", map[i]);
+		map[i][count - 1] = '\0';
 		i++;
 	}
 	map[i] = NULL;
@@ -107,7 +92,7 @@ char	**count_all_line(char *file_name, char **map, int *nb_lines)
 	while (bytes_read != 0)
 	{
 		bytes_read = read(fdesc, c, count);
-		*nb_lines = count_line(c) + *nb_lines;
+		*nb_lines += 1;
 	}
 	close(fdesc);
 	map = malloc(sizeof(char *) * (*nb_lines + 1));
@@ -138,6 +123,6 @@ int	main(void)
 	// find_line(map, 0, 'o');
 	print_maps(map);
 	printf("\n");
-	free_all(map, params);
+	free_all(map);
 	return (0);
 }
