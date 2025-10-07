@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:26:51 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/07 13:44:09 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:54:04 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_putchar(char c)
 
 void	print_maps(char **maps)
 {
-	int i;
-	int a;
+	int	i;
+	int	a;
 
 	a = 0;
 	i = 1;
