@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   params_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 08:49:32 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:05:44 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*read_params(char *file_name)
 	while (read(fdesc, &c, 1))
 	{
 		params_len++;
-		if (c == '\n')
+		if (c == '\n' && params_len)
 			break ;
 	}
 	close(fdesc);

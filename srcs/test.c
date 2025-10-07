@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 21:45:53 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/06 22:55:28 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/07 11:26:12 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	edit_map(int x, char **maps, char find, int value[])
 	int	i;
 	int	a;
 
-	printf("%d : %d \nx = %d \n", value[0], value[1], x);
+	// printf("%d : %d \nx = %d \n", value[0], value[1], x);
 	a = 0;
 	i = 0;
 	while (maps[i])
@@ -25,7 +25,7 @@ void	edit_map(int x, char **maps, char find, int value[])
 		a = 0;
 		while (maps[i][a] && maps[i])
 		{
-			if (x == a)
+			if (x == a && value[0] == i)
 				maps[i][a] = '0';
 			a++;
 		}
@@ -53,5 +53,6 @@ void	find_line(char **maps, int x, char find)
 		x++;
 	}
 	value[count] = 0;
+	printf("%d", value[0]);
 	edit_map(y, maps, find, value);
 }
