@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:41:44 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 16:14:02 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:23:16 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ typedef struct s_params
 	char	block;
 	char	full;
 }	t_params;
-void	write_params(t_params *params, char **map);
+int	write_params(t_params *params, char **map);
 #endif

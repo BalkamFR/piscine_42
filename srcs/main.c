@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 15:54:41 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:23:49 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	map = read_file("test");
 	params = malloc(sizeof(t_params));
-	write_params(params, map);
-	if (is_map_valid(map, params))
+	if (write_params(params, map) && is_map_valid(map, params))
 	{
 		square = malloc(sizeof(int *) * params->size);
 		biggest_square_tab(square, params);

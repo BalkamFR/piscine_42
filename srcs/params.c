@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 16:14:38 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:25:04 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,39 @@
 #include "../includes/params.h"
 #include "../includes/utils.h"
 
-void	write_params(t_params *params, char **map)
+int	is_param_ok(char *str)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < 32 || str[i] > 126)
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[j])
+		{
+			if (str[i] == str[j] && i != j)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	write_params(t_params *params, char **map)
 {
 	int	params_len;
 
+	if (is_param_ok(map[0]) == 0)
+		return (0);
 	params_len = ft_strlen(map[0]);
 	params->max_line = ft_strlen(map[1]);
 	params->full = map[0][params_len - 1];
@@ -27,4 +56,5 @@ void	write_params(t_params *params, char **map)
 	params->empty = map[0][params_len - 3];
 	map[0][params_len - 3] = '\0';
 	params->size = ft_atoi(map[0]);
+	return (1);
 }
