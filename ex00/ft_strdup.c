@@ -6,49 +6,49 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:18:48 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/30 09:32:03 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:45:13 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdlib.h>
 
 int	str_len(char *src)
 {
 	int	i;
+
 	i = 0;
 	while (src[i])
 		i++;
-	return(i);
+	return (i);
 }
-
 
 char	*ft_strdup(char *src)
 {
-	char *dest;
-	int	i;
+	char	*dest;
+	int		i;
 
 	i = 0;
 	dest = malloc(sizeof(char) * str_len(src) + 1);
 	if (!dest)
-		return(0);
+		return (0);
 	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return(dest);
+	return (dest);
 }
 
-#include<stdio.h>
+// #include<stdio.h>
 
-int	main(void)
-{
-	char *dest;
+// int	main(void)
+// {
+// 	char *dest;
 
-	dest = ft_strdup("hello world");
-	
-	printf("%s", dest);
-	free(dest);
-	return (0);
-}
+// 	dest = ft_strdup("hello world");
+
+// 	printf("%s", dest);
+// 	free(dest);
+// 	return (0);
+// }

@@ -6,13 +6,12 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:07:34 by papilaz           #+#    #+#             */
-/*   Updated: 2025/09/30 16:09:45 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:44:18 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 
 int	len_str(char *str)
 {
@@ -71,17 +70,17 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			cat(dest, sep);
 		i++;
 	}
-	dest[size_all_tab(strs, sep)] = '\0';
+	dest[size_all_tab(strs, sep)] = 0;
 	return (dest);
 }
 
+// int	main(int argc, char **argv)
+// {
+// 	char *src;
 
-int	main(int argc, char **argv)
-{
-	char *src;
-
-	src = ft_strjoin(argc, argv, "c");
-	printf("%s", src);
-	free(src);
-	return (0);
-}
+// 	src = ft_strjoin(argc, argv, "");
+// 	printf("%s", src);
+// 	free(src);
+// 	(void)argv;
+// 	return (0);
+// }
