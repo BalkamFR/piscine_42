@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 23:13:06 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/08 15:15:15 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:29:22 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	srt_len(char c, char *str, int flag)
 	if (flag == 1)
 	{
 		if (!str[i])
-			return (-1);
+			return (1);
 		while (str[i])
 			i++;
 		return (i - 1);
@@ -38,13 +38,15 @@ int	srt_len(char c, char *str, int flag)
 	return (0);
 }
 
-int	compt_all_word(char *str, char *charset, int index)
+int	compt_all_word(char *str, char *charset)
 {
 	int	i;
+	int	index;
 	int	len;
 
+	index = 0;
 	len = 0;
-	if (srt_len('c', charset, 1) == -1)
+	if (srt_len('c', charset, 1) == 1)
 		return (1);
 	while (charset[index])
 	{
@@ -75,6 +77,7 @@ int	len_word(char *str, char *charset, int index)
 	i = 0;
 	len = 0;
 	compt = 0;
+	
 	while (str[i])
 	{
 		compt = 0;
@@ -102,9 +105,9 @@ void	add_data(char **tab_all, char *str, char *charset)
 	{
 		tab_all[0] = str;
 		tab_all[1] = NULL;
-		return ;
+		return;
 	}
-	while (0 < compt_all_word(str, charset, 0))
+	while (0 < compt_all_word(str, charset))
 	{
 		a = 0;
 		while (srt_len(*str, charset, 2) == 0)
@@ -127,10 +130,10 @@ char	**ft_split(char *str, char *charset)
 	int		i;
 
 	i = 0;
-	tab_all = malloc(sizeof(char *) * (compt_all_word(str, charset, 0) + 1));
+	tab_all = malloc(sizeof(char *) * (compt_all_word(str, charset) + 1));
 	if (!tab_all)
 		return (0);
-	while (i < compt_all_word(str, charset, 0) - (srt_len('c', charset, 1)))
+	while (i < compt_all_word(str, charset) - (srt_len('c', charset, 1)))
 	{
 		tab_all[i] = malloc((sizeof(char) * len_word(str, charset, i) + 1));
 		if (!tab_all[i])
@@ -138,18 +141,22 @@ char	**ft_split(char *str, char *charset)
 		i++;
 	}
 	if (i == 0)
+	{
 		tab_all[0] = malloc((sizeof(char) * (srt_len('c', str, 1) + 1)));
+		tab_all[0][i] ='\0';
+	}
+	
 	add_data(tab_all, str, charset);
 	return (tab_all);
 }
 
 int	main(int argc, char **argv)
 {
-	int i;
-	char **tab;
+	int		i;
+	char	**tab;
 
 	i = 0;
-	tab = ft_split("ca ca", " c");
+	tab = ft_split("hello commnt tu va", "456");
 	while (tab[i])
 	{
 		printf("tab[%d] : %s\n", i, tab[i]);
