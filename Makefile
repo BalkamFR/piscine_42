@@ -10,7 +10,9 @@ SRCS = srcs/check_coords.c \
 	srcs/map_check.c \
 	srcs/params.c \
 	srcs/utils.c \
-	srcs/utils2.c
+	srcs/utils2.c \
+	srcs/find_square.c
+
 OBJS = $(SRCS:.c=.o)
 
 

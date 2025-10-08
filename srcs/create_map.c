@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 20:47:44 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 10:13:17 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	fill_map(char *file_name, char **map, int count)
 	i = 0;
 	bytes_read = 1;
 	fdesc = open(file_name, O_RDONLY);
-	map[i] = malloc(sizeof(char) * (6)); // TODO: COMPTER VRAIMENT LEN 1ERE LIGNE
-	bytes_read = read(fdesc, map[i], 6);
-	map[i][5] = '\0';
+	map[i] = malloc(sizeof(char) * (5)); // TODO: COMPTER VRAIMENT LEN 1ERE LIGNE
+	bytes_read = read(fdesc, map[i], 5);
+	map[i][4] = '\0';
 	i++;
 	while (bytes_read != 0)
 	{

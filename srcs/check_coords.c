@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 14:33:41 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 08:01:07 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 09:02:05 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ int	check_coords_max()
 
 int	biggest_square_tab(int **square, t_params *params)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
+	x = 0;
 	if (square == NULL)
 		return (0);
-	while (i < params->size)
+	while (x < params->size)
 	{
-		j = 0;
-		square[i] = malloc(sizeof(int) * params->size);
-		if (square[i] == NULL)
+		y = 0;
+		square[x] = malloc(sizeof(int) * params->size);
+		if (square[x] == NULL)
 			return (0);
-		while (j < params->size)
-			square[i][j++] = 0;
-		i++;
+		while (y < params->size)
+			square[x][y++] = 0;
+		x++;
 	}
 	return (1);
 }
@@ -43,25 +43,25 @@ int	biggest_square_tab(int **square, t_params *params)
 t_coords	biggest_square(int **square, t_params *params)
 {
 	t_coords	coords;
-	int	i;
-	int	j;
+	int			x;
+	int			y;
 
 	coords.x = 0;
 	coords.y = 0;
-	i = 0;
-	while (i < params->size)
+	x = 0;
+	while (x < params->size)
 	{
-		j = 0;
-		while (j < params->size)
+		y = 0;
+		while (y < params->size)
 		{
-			if (square[i][j] > square[coords.x][coords.y])
+			if (square[x][y] > square[coords.x][coords.y])
 			{
-				coords.x = i;
-				coords.y = j;
+				coords.x = x;
+				coords.y = y;
 			}
-			j++;
+			y++;
 		}
-		i++;
+		x++;
 	}
 	return (coords);
 }
