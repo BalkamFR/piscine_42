@@ -6,18 +6,13 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 14:33:41 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 09:02:05 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:36:59 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/params.h"
 #include "../includes/map.h"
 #include <stdlib.h>
-
-int	check_coords_max()
-{
-	return (0);
-}
 
 int	biggest_square_tab(int **square, t_params *params)
 {

@@ -6,12 +6,11 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 10:18:16 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:36:51 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "../includes/params.h"

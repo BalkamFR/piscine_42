@@ -6,14 +6,13 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 10:13:17 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:37:47 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/params.h"
 #include "../includes/utils.h"
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -54,9 +53,9 @@ void	fill_map(char *file_name, char **map, int count)
 	i = 0;
 	bytes_read = 1;
 	fdesc = open(file_name, O_RDONLY);
-	map[i] = malloc(sizeof(char) * (5)); // TODO: COMPTER VRAIMENT LEN 1ERE LIGNE
-	bytes_read = read(fdesc, map[i], 5);
-	map[i][4] = '\0';
+	map[i] = malloc(sizeof(char) * (7)); // TODO: COMPTER VRAIMENT
+	bytes_read = read(fdesc, map[i], 7);
+	map[i][6] = '\0';
 	i++;
 	while (bytes_read != 0)
 	{
