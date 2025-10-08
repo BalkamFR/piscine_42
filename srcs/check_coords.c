@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 14:33:41 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 15:36:59 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:05:26 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	biggest_square_tab(int **square, t_params *params)
 	while (x < params->size)
 	{
 		y = 0;
-		square[x] = malloc(sizeof(int) * params->size);
+		square[x] = malloc(sizeof(int) * params->max_line);
 		if (square[x] == NULL)
 			return (0);
-		while (y < params->size)
+		while (y < params->max_line)
 			square[x][y++] = 0;
 		x++;
 	}
@@ -47,7 +47,7 @@ t_coords	biggest_square(int **square, t_params *params)
 	while (x < params->size)
 	{
 		y = 0;
-		while (y < params->size)
+		while (y < params->max_line)
 		{
 			if (square[x][y] > square[coords.x][coords.y])
 			{

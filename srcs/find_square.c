@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 08:05:57 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 15:37:59 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:05:46 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	find_square(char **map, int	**square, t_params *params)
 	while (x < params->size)
 	{
 		y = 0;
-		while (y < params->size)
+		while (y < params->max_line)
 		{
 			if (map[x + 1][y] == params->empty)
 				square[x][y] = expand_square(map, params, x, y);
