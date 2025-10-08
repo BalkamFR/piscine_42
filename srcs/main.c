@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 18:34:56 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:45:37 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/params.h"
-#include "../includes/map.h"
-#include "../includes/utils.h"
 #include "../includes/free.h"
+#include "../includes/map.h"
+#include "../includes/params.h"
+#include "../includes/utils.h"
 #include <stdlib.h>
 
-int	main(int argc, char **argv)
+void	read_all_map(char *name_map)
 {
 	char		**map;
 	int			**square;
 	t_params	*params;
 	t_coords	coords;
 
-	(void)argc;
-	(void)argv;
-	map = read_file("test");
+
+	map = read_file(name_map);
 	params = malloc(sizeof(t_params));
 	square = NULL;
 	if (write_params(params, map) && is_map_valid(map, params))
@@ -39,5 +38,24 @@ int	main(int argc, char **argv)
 	else
 		ft_print("map error\n", 2);
 	free_all(map, params, square);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	if (argc == 1)
+	{
+		/* code */
+	}
+	if (argc > 1)
+	{
+		while (argv[i])
+		{
+			read_all_map(argv[i]);
+			i++;
+		}
+	}
 	return (0);
 }
