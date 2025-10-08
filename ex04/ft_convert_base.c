@@ -5,220 +5,96 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 17:14:49 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/07 21:39:12 by papilaz          ###   ########.fr       */
+/*   Created: 2025/10/08 11:01:34 by papilaz           #+#    #+#             */
+/*   Updated: 2025/10/08 16:18:32 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+long int	ft_strlen(char *str);
 
-int	len_str(char *str)
+void	fill_nul_byte(char *str, int s)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (s-- > 0)
+		str[s] = '\0';
 }
 
-long int	check_nbr(char *nbr, char c)
+long int	is_base_valid(char *base)
 {
+	long int	lenght;
 	long int	i;
+	long int	j;
 
+	lenght = 0;
+	while (base[lenght])
+		lenght++;
+	if (lenght < 2)
+		return (0);
 	i = 0;
-	while (nbr[i])
+	while (base[i])
 	{
-		if (nbr[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-long int	check_number_valide(char *nbr, char *base)
-{
-	long int	len;
-	long int	i;
-	long int	a;
-
-	a = 0;
-	len = 0;
-	i = 0;
-	while ((nbr[a] >= 9 && nbr[a] <= 13) || (nbr[a] == 32 || nbr[a] == '-'
-			|| nbr[a] == '+'))
-		a++;
-	while (nbr[a])
-	{
-		i = 0;
-		while (base[i])
+		if (base[i] == '+' || base[i] == '-' || base[i] == ' ' || (base[i] >= 9
+				&& base[i] <= 13))
+			return (0);
+		j = 0;
+		while (base[j])
 		{
-			if (base[i] == nbr[a])
-				len++;
-			i++;
+			if (base[i] == base[j] && i != j)
+				return (0);
+			j++;
 		}
-		a++;
+		i++;
 	}
-	if (len == len_str(nbr + a))
-		return (1);
-	return (0);
+	return (lenght);
 }
 
-long int	convert_value(char find, char *base)
+char	check_base(char c, char *base)
 {
 	long int	i;
 
 	i = 0;
 	while (base[i])
 	{
-		if (base[i] == find)
+		if (c == base[i])
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
-long int	base_valide(char *base)
+
+void	skip_whitespace(char *str, long int *i, char *multiplier)
 {
+	while (str[*i] == '+' || str[*i] == '-')
+	{
+		if (str[*i] == '-')
+			*multiplier *= -1;
+		*i += 1;
+	}
+}
+
+long int	ft_atoi_base(char *str, char *base)
+{
+	long int	nb;
 	long int	i;
-	long int	a;
+	char		multiplier;
+	long int	lenght_base;
+	long int	index_base;
 
-	i = 1;
-	a = 0;
-	if (len_str(base) <= 1)
+	lenght_base = is_base_valid(base);
+	if (lenght_base == 0)
 		return (0);
-	while (base[i])
-	{
-		a = i;
-		while (base[a])
-		{
-			if ((base[a] == base[i - 1]) || (base[a] == ' ' || base[a] == '+'
-					|| base[a] == '-'))
-				return (0);
-			a++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	ft_atoi_base(char *str, char *base)
-{
-	int	res;
-	int	i;
-	int	len_base;
-	int	sign;
-
+	nb = 0;
 	i = 0;
-	sign = 1;
-
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	multiplier = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	while ((str[i] == '-' || str[i] == '+'))
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	res = 0;
-	len_base = len_str(base);
-	while (check_nbr(base, str[i]) == 1)
-	{
-		res = res * len_base + convert_value(str[i], base);
-		i++;
-	}
-	return (res * sign);
-}
-
-int	invert_tab(char *str)
-{
-	int		i;
-	int		len;
-	char	*res;
-
-	len = len_str(str);
-	res = malloc((sizeof(char) * len) + 1);
-	if (!res)
-		return (0);
-	i = 0;
-	res[i] = '\0';
-	while (len > 0)
-	{
-		res[i] = str[len - 1];
-		len--;
-		i++;
-	}
-	i = 0;
+	skip_whitespace(str, &i, &multiplier);
 	while (str[i])
 	{
-		str[i] = res[i];
+		index_base = check_base(str[i], base);
+		if (index_base == -1)
+			break ;
+		nb = nb * lenght_base + index_base;
 		i++;
 	}
-	free(res);
-	return (0);
-}
-
-char	*ft_putnbr_base(long int nb, char *base, char *res)
-{
-	long int	sign;
-	long int	temp_nb;
-	long int	i;
-
-	i = 0;
-	temp_nb = 0;
-	sign = 0;
-	if (nb < 0)
-		sign = 1;
-	if (nb < 0)
-		nb = nb * -1;
-	while (len_str(base) <= nb)
-	{
-		temp_nb = nb % len_str(base);
-		res[i] = base[temp_nb];
-		nb = nb / len_str(base);
-		i++;
-	}
-	temp_nb = nb % len_str(base);
-	res[i] = base[temp_nb];
-	if (sign == 1)
-	{
-		res[i + 1] = '-';
-		i++;
-	}
-	res[i + 1] = '\0';
-	return (res);
-}
-
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
-{
-	long int	res;
-	char		*res_convert;
-
-	if (base_valide(base_to) == 0)
-		return (0);
-	res_convert = malloc(sizeof(char) * 340);
-	if (!res_convert)
-		return (0);
-	res = ft_atoi_base(nbr, base_from);
-	ft_putnbr_base(res, base_to, res_convert);
-	invert_tab(res_convert);
-	return (res_convert);
-}
-
-int	main(int argc, char **argv)
-{
-	char *res;
-
-	res = ft_convert_base("7894545646", "012345789", "012345789");
-	printf("%s\n", res);
-	free(res);
-	// if (argc == 4)
-	// {
-	// 	res = ft_convert_base(argv[1], argv[2], argv[3]);
-	// 	printf("argc,argv :%s\n", res);
-	// 	free(res);
-	// }
-	(void)argc;
-	(void)argv;
-	return (0);
+	return (nb * multiplier);
 }
