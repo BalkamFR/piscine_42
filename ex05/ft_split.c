@@ -6,58 +6,64 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 23:13:06 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/02 16:59:59 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:15:15 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	compt_word(char *str, char charset)
+int	srt_len(char c, char *str, int flag)
+{
+	int	i;
+
+	i = 0;
+	if (flag == 1)
+	{
+		if (!str[i])
+			return (-1);
+		while (str[i])
+			i++;
+		return (i - 1);
+	}
+	if (flag == 2)
+	{
+		while (*str)
+		{
+			if (c == *str)
+				return (1);
+			str++;
+		}
+	}
+	return (0);
+}
+
+int	compt_all_word(char *str, char *charset, int index)
 {
 	int	i;
 	int	len;
 
-	i = 0;
 	len = 0;
-	while (str[i])
+	if (srt_len('c', charset, 1) == -1)
+		return (1);
+	while (charset[index])
 	{
-		while (str[i] == charset)
-			i++;
-		if (str[i])
+		i = 0;
+		while (str[i])
 		{
-			while (str[i] != charset && str[i])
+			while (str[i] == charset[index])
 				i++;
-			len++;
+			if (str[i])
+			{
+				while (str[i] != charset[index] && str[i])
+					i++;
+				if (str[i - 1] != charset[index])
+					len++;
+			}
 		}
+		index++;
 	}
 	return (len);
-}
-
-int	compt_all_word(char *str, char *charset)
-{
-	int	i;
-	int	compt;
-
-	compt = 0;
-	i = 0;
-	while (charset[i])
-	{
-		compt = compt_word(str, charset[i]) + compt;
-		i++;
-	}
-	return (compt);
-}
-
-int	charsetverif(char c, char *charset)
-{
-	while (*charset)
-	{
-		if (c == *charset)
-			return (1);
-		charset++;
-	}
-	return (0);
 }
 
 int	len_word(char *str, char *charset, int index)
@@ -72,9 +78,9 @@ int	len_word(char *str, char *charset, int index)
 	while (str[i])
 	{
 		compt = 0;
-		while (charsetverif(str[i], charset) == 1)
+		while (srt_len(str[i], charset, 2) == 1)
 			i++;
-		while (charsetverif(str[i], charset) == 0)
+		while (srt_len(str[i], charset, 2) == 0)
 		{
 			compt++;
 			i++;
@@ -86,62 +92,73 @@ int	len_word(char *str, char *charset, int index)
 	return (0);
 }
 
-char	**ft_split(char *str, char *charset)
+void	add_data(char **tab_all, char *str, char *charset)
 {
-	char	**tab_all;
-	int		i;
-	int		a;
+	int	i;
+	int	a;
 
 	i = 0;
-	tab_all = malloc((sizeof(char *) * compt_all_word(str, charset)) + 1);
-	while (i < compt_all_word(str, charset))
+	if (charset[0] == '\0')
 	{
-		tab_all[i] = malloc((sizeof(char) * len_word(str, charset, i)) + 1);
-		i++;
+		tab_all[0] = str;
+		tab_all[1] = NULL;
+		return ;
 	}
-	i = 0;
-	while (tab_all[i])
+	while (0 < compt_all_word(str, charset, 0))
 	{
 		a = 0;
-		while (charsetverif(*str, charset) == 0)
+		while (srt_len(*str, charset, 2) == 0)
 		{
 			tab_all[i][a] = *str;
 			str++;
 			a++;
 		}
-		while (charsetverif(*str, charset) == 1)
+		tab_all[i][a] = '\0';
+		while (srt_len(*str, charset, 2) == 1)
 			str++;
 		i++;
 	}
 	tab_all[i] = NULL;
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char	**tab_all;
+	int		i;
+
+	i = 0;
+	tab_all = malloc(sizeof(char *) * (compt_all_word(str, charset, 0) + 1));
+	if (!tab_all)
+		return (0);
+	while (i < compt_all_word(str, charset, 0) - (srt_len('c', charset, 1)))
+	{
+		tab_all[i] = malloc((sizeof(char) * len_word(str, charset, i) + 1));
+		if (!tab_all[i])
+			return (0);
+		i++;
+	}
+	if (i == 0)
+		tab_all[0] = malloc((sizeof(char) * (srt_len('c', str, 1) + 1)));
+	add_data(tab_all, str, charset);
 	return (tab_all);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	int i;
-// 	char **tab;
-// 	char *str;
-// 	char *charset;
-
-// 	i = 0;
-// 	charset = "- ";
-// 	str = "c-omment ca va ?";
-// 	tab = ft_split(str, charset);
-
-// 	while (tab[i])
-// 	{
-// 		printf("%s\n", tab[i]);
-// 		free(tab[i]);
-// 		i++;
-// 	}
-// 	free(tab);
-// 	(void)argc;
-// 	(void)argv;
-// 	return (0);
-// }
-
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("%d", compt_all_word("comm-en-t tu va ?", " -"));
+	int i;
+	char **tab;
+
+	i = 0;
+	tab = ft_split("ca ca", " c");
+	while (tab[i])
+	{
+		printf("tab[%d] : %s\n", i, tab[i]);
+		i++;
+	}
+	printf("%p\n", tab[i]);
+
+	free(tab);
+	(void)argc;
+	(void)argv;
+	return (0);
 }
