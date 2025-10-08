@@ -6,14 +6,13 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:33:08 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 18:57:33 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 20:31:22 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/params.h"
 #include "../includes/utils.h"
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
