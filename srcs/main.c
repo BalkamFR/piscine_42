@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 15:36:33 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:54:41 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 		biggest_square_tab(square, params);
 		find_square(map, square, params);
 		coords = biggest_square(square, params);
+		print_map_replace(map, square[coords.x][coords.y], coords, params);
 		free_all(map, params, square);
 	}
 	else

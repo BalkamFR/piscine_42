@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:41:44 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/07 16:17:25 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 16:14:02 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_params
 {
 	int		size;
+	int		max_line;
 	char	empty;
 	char	block;
 	char	full;

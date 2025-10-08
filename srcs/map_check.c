@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 17:35:57 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 15:36:35 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 16:27:57 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	is_map_valid(char **map, t_params *params)
 	while (map[i])
 	{
 		j = 0;
-		if (map[i][params->size] != '\n')
+		if (map[i][params->max_line - 1] != '\n')
 			return (0);
-		while (j < params->size)
+		while (j < params->max_line - 1)
 		{
 			if (map[i][j] != params->block && map[i][j] != params->empty)
 				return (0);
