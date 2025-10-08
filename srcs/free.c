@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 08:52:15 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 07:53:03 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:38:21 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_all(char **map, t_params *params, int **square)
 	i = 0;
 	while (i < params->size)
 		free(square[i++]);
-	free(square);
+	if (square != NULL)
+		free(square);
 	free(params);
 }

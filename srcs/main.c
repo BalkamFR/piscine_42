@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 11:27:03 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 18:23:49 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:34:56 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	map = read_file("test");
 	params = malloc(sizeof(t_params));
+	square = NULL;
 	if (write_params(params, map) && is_map_valid(map, params))
 	{
 		square = malloc(sizeof(int *) * params->size);
@@ -34,9 +35,9 @@ int	main(int argc, char **argv)
 		find_square(map, square, params);
 		coords = biggest_square(square, params);
 		print_map_replace(map, square[coords.x][coords.y], coords, params);
-		free_all(map, params, square);
 	}
 	else
 		ft_print("map error\n", 2);
+	free_all(map, params, square);
 	return (0);
 }
