@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:31:39 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/08 15:45:23 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/08 21:17:52 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ int	*ft_range(int min, int max)
 	int	i;
 
 	i = 0;
+	if (min >= max)
+		return (NULL);
 	dest = malloc(sizeof(int) * (max - min));
 	if (!dest)
 		return (0);
-	while (min < max)
+	while (i < max - min)
 	{
-		dest[i] = min;
-		min++;
+		dest[i] = min + i;
 		i++;
 	}
 	return (dest);
