@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:26:51 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/08 16:00:29 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 17:54:54 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	print_map_replace(char **maps, int size, t_coords coords, t_params *p)
 				temp_x++;
 			}
 		}
-
 		ft_print(maps[x++], 1);
 	}
 }

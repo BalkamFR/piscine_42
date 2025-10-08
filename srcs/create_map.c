@@ -6,7 +6,7 @@
 /*   By: equentin <equentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:27:40 by equentin          #+#    #+#             */
-/*   Updated: 2025/10/08 16:01:20 by equentin         ###   ########.fr       */
+/*   Updated: 2025/10/08 17:33:21 by equentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,45 @@ int	count_line_len(char *file_name)
 	return (count + 1);
 }
 
+void	read_param_len(char *file_name, char **map, int *fdesc)
+{
+	int		i;
+	int		bytes_read;
+	char	c;
+
+	bytes_read = 1;
+	i = 0;
+	while (bytes_read != 0)
+	{
+		bytes_read = read(*fdesc, &c, 1);
+		if (c == '\n')
+			break ;
+		i++;
+	}
+	map[0] = malloc(sizeof(char) * i * 2);
+	close(*fdesc);
+	*fdesc = open(file_name, O_RDONLY);
+	bytes_read = 1;
+	i = 0;
+	while (bytes_read != 0)
+	{
+		bytes_read = read(*fdesc, &map[0][i], 1);
+		if (map[0][i++] == '\n')
+			break ;
+	}
+	map[0][i - 1] = '\0';
+}
+
 void	fill_map(char *file_name, char **map, int count)
 {
 	int	bytes_read;
 	int	fdesc;
 	int	i;
 
-	i = 0;
 	bytes_read = 1;
 	fdesc = open(file_name, O_RDONLY);
-	map[i] = malloc(sizeof(char) * (7)); // TODO: COMPTER VRAIMENT
-	bytes_read = read(fdesc, map[i], 7);
-	map[i][6] = '\0';
-	i++;
+	read_param_len(file_name, map, &fdesc);
+	i = 1;
 	while (bytes_read != 0)
 	{
 		map[i] = malloc(sizeof(char) * (count + 1) * 2);
