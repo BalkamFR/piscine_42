@@ -6,11 +6,10 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:07:34 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/09 12:48:42 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/09 17:14:23 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 int	len_str(char *str)
@@ -23,7 +22,7 @@ int	len_str(char *str)
 	return (i);
 }
 
-int	size_all_tab(char **strs, char *sep)
+int	size_all_tab(char **strs, char *sep, int size)
 {
 	int	i;
 	int	res;
@@ -32,7 +31,8 @@ int	size_all_tab(char **strs, char *sep)
 	res = 0;
 	while (strs[i])
 	{
-		res = res + len_str(strs[i]) + len_str(sep);
+		if (size - 1 >= i)
+			res = res + len_str(strs[i]) + len_str(sep);
 		i++;
 	}
 	return (res);
@@ -59,7 +59,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*dest;
 
 	i = 0;
-	dest = malloc(sizeof(char) * (size_all_tab(strs, sep) + 1));
+	dest = malloc(sizeof(char) * (size_all_tab(strs, sep, size) + 1));
 	if (!dest)
 		return (0);
 	dest[0] = '\0';
@@ -70,16 +70,17 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			cat(dest, sep);
 		i++;
 	}
-	dest[size_all_tab(strs, sep)] = '\0';
 	return (dest);
 }
+/*
+#include <stdio.h>
 
-// int	main(int argc, char **argv)
-// {
-// 	char *src;
-// 	src = ft_strjoin(argc, argv, "");
-// 	printf("%s", src);
-// 	free(src);
-// 	(void)argv;
-// 	return (0);
-// }
+int	main(int argc, char **argv)
+{
+	char *src;
+	src = ft_strjoin(argc - 1, argv + 1, "hello");
+	free(src);
+	(void)argv;
+	(void)argc;
+	return (0);
+}*/
