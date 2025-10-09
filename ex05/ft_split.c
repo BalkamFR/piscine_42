@@ -6,11 +6,10 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 23:13:06 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/09 12:48:52 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/09 17:11:43 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 int	srt_len(char c, char *str, int flag)
@@ -141,23 +140,24 @@ char	**ft_split(char *str, char *charset)
 	add_data(tab_all, str, charset);
 	return (tab_all);
 }
+/*
+#include <stdio.h>
+int	main(int argc, char **argv)
+{
+	int		i;
+	char	**tab;
 
-// int	main(int argc, char **argv)
-// {
-// 	int		i;
-// 	char	**tab;
+	i = 0;
+	tab = ft_split("comment tu va ", "");
+	while (tab[i])
+	{
+		printf("tab[%d] : %s\n", i, tab[i]);
+		i++;
+	}
+	printf("%p\n", tab[i]);
 
-// 	i = 0;
-// 	tab = ft_split("comment tu va ", "");
-// 	while (tab[i])
-// 	{
-// 		printf("tab[%d] : %s\n", i, tab[i]);
-// 		i++;
-// 	}
-// 	printf("%p\n", tab[i]);
-
-// 	free(tab);
-// 	(void)argc;
-// 	(void)argv;
-// 	return (0);
-// }
+	free(tab);
+	(void)argc;
+	(void)argv;
+	return (0);
+}*/
