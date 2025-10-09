@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:07:34 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/08 15:44:18 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/09 12:48:42 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,20 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	if (!dest)
 		return (0);
 	dest[0] = '\0';
-	while (size > i)
+	while (size > i && strs[i])
 	{
 		cat(dest, strs[i]);
 		if (size - 1 > i)
 			cat(dest, sep);
 		i++;
 	}
-	dest[size_all_tab(strs, sep)] = 0;
+	dest[size_all_tab(strs, sep)] = '\0';
 	return (dest);
 }
 
 // int	main(int argc, char **argv)
 // {
 // 	char *src;
-
 // 	src = ft_strjoin(argc, argv, "");
 // 	printf("%s", src);
 // 	free(src);

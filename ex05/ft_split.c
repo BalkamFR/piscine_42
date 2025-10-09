@@ -6,7 +6,7 @@
 /*   By: papilaz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 23:13:06 by papilaz           #+#    #+#             */
-/*   Updated: 2025/10/08 23:31:34 by papilaz          ###   ########.fr       */
+/*   Updated: 2025/10/09 12:48:52 by papilaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	compt_all_word(char *str, char *charset)
 		}
 		str++;
 	}
-
 	return (len);
 }
 
@@ -100,7 +99,7 @@ void	add_data(char **tab_all, char *str, char *charset)
 		tab_all[1] = NULL;
 		return ;
 	}
-	while (0 < compt_all_word(str, charset))
+	while (i <= compt_all_word(str, charset))
 	{
 		a = 0;
 		while (srt_len(*str, charset, 2) == 0)
@@ -110,7 +109,7 @@ void	add_data(char **tab_all, char *str, char *charset)
 			a++;
 		}
 		tab_all[i][a] = '\0';
-		while (srt_len(*str, charset, 2) == 1)
+		while (srt_len(*str, charset, 2) == 1 && *str)
 			str++;
 		i++;
 	}
@@ -126,7 +125,8 @@ char	**ft_split(char *str, char *charset)
 	tab_all = malloc(sizeof(char *) * (compt_all_word(str, charset) + 1));
 	if (!tab_all)
 		return (0);
-	while (i < compt_all_word(str, charset) - (srt_len('c', charset, 0)))
+	while (i <= compt_all_word(str, charset) && compt_all_word(str,
+			charset) != 0)
 	{
 		tab_all[i] = malloc((sizeof(char) * len_word(str, charset, i) + 1));
 		if (!tab_all[i])
@@ -136,28 +136,28 @@ char	**ft_split(char *str, char *charset)
 	if (i == 0)
 	{
 		tab_all[0] = malloc((sizeof(char) * (srt_len('c', str, 0) + 1)));
-		tab_all[0][i] = '\0';
+		tab_all[0][1] = '\0';
 	}
 	add_data(tab_all, str, charset);
 	return (tab_all);
 }
 
-int	main(int argc, char **argv)
-{
-	int		i;
-	char	**tab;
+// int	main(int argc, char **argv)
+// {
+// 	int		i;
+// 	char	**tab;
 
-	i = 0;
-	tab = ft_split("j aime le caca", " a");
-	while (tab[i])
-	{
-		printf("tab[%d] : %s\n", i, tab[i]);
-		i++;
-	}
-	printf("%p\n", tab[i]);
+// 	i = 0;
+// 	tab = ft_split("comment tu va ", "");
+// 	while (tab[i])
+// 	{
+// 		printf("tab[%d] : %s\n", i, tab[i]);
+// 		i++;
+// 	}
+// 	printf("%p\n", tab[i]);
 
-	free(tab);
-	(void)argc;
-	(void)argv;
-	return (0);
-}
+// 	free(tab);
+// 	(void)argc;
+// 	(void)argv;
+// 	return (0);
+// }
